@@ -9,7 +9,7 @@ const CheckoutPage = ({cart}) => {
                <div className={`grid grid-cols-12`}>
                     <div className="col-span-10">
                         {
-                            cart.map((item) => <div className="grid grid-cols-6">
+                            cart.map((item) => <div key={item.id} className="grid grid-cols-6">
                                 <div>
                                     <img src={item.product.image} className="h-24 w-24" />
                                 </div>

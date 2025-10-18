@@ -1,7 +1,7 @@
 import Header from "./components/Header";
 import CheckoutPage from "./pages/CheckoutPage";
 import HomePage from "./pages/HomePage";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router";
 import { useEffect, useState } from "react"
 import { addToCartRepo } from './repositories/cartRepository';
 import { fetchProducts } from './repositories/productRepository';
@@ -23,15 +23,15 @@ const App = () => {
   };
 
   return (
-    <Router>
+      <>
       <Header cart={cart} />
       <main>
         <Routes>
-          <Route path="/" element={<HomePage addToCart={addToCart} products={products} loading={loading} />} />
-          <Route path="/checkout" element={<CheckoutPage cart={cart} />} />
+          <Route index element={<HomePage addToCart={addToCart} products={products} loading={loading} />} />
+          <Route path="checkout" element={<CheckoutPage cart={cart} />} />
         </Routes>
       </main>
-    </Router>
+      </>
   );
 };
 
