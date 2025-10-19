@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 const Header = ({cart}) => {
-    const qty = cart.reduce((sum, item) => sum + item.quantity, 0)
+    const qty = cart.items.reduce((sum, item) => sum + item.quantity, 0)
     return (
         <header className="bg-black text-white p-4">
             <div className="w-7xl mx-auto flex justify-between items-center">

@@ -1,30 +1,27 @@
+import CartItem from "../components/CartItem"
+import CartSummaryItem from "../components/CartSummaryItem"
 
 
-const CheckoutPage = ({cart}) => {
+const CheckoutPage = ({ cart, increment, decrement, deleteItem }) => {
     return (
         <>
             <title>Checkout</title>
             <section className="w-7xl mx-auto my-8">
                 <h2 className="text-3xl font-bold mb-4">Checkout</h2>
-               <div className={`grid grid-cols-12`}>
-                    <div className="col-span-10">
+                <div className={`grid grid-cols-10 gap-x-3`}>
+                    <div className="col-span-6 border border-gray-200 rounded-2xl p-4 flex flex-col gap-y-3">
                         {
-                            cart.map((item) => <div className="grid grid-cols-6">
-                                <div>
-                                    <img src={item.product.image} className="h-24 w-24" />
-                                </div>
-                                <div>
-                                    <h2>{item.product.name}</h2>
-                                    <p>Qty: {item.quantity}</p>
-                                    <p>Rs. {item.quantity * item.product.price}</p>
-                                </div>
-                            </div>)
+                            cart.items.length === 0 ? <p>No Items added to cart</p> :
+                                cart.items.map((item, index) => <CartItem key={item.id} item={item} isFirstItem={index === 0} increment={increment} decrement={decrement} deleteItem={deleteItem} />)
                         }
                     </div>
-                    <div className="col-span-2">
-
+                    <div className="col-span-4 border border-gray-200 rounded-2xl p-4 flex flex-col gap-y-3">
+                        <h3 className="font-bold">Order Summary</h3>
+                        <CartSummaryItem title="Subtotal" value="Rs.500"  />
+                        <CartSummaryItem title="Discount" value="Rs.500" highlight={true}  />
+                        <CartSummaryItem title="Delivery Fee" value="Rs.500"  />
                     </div>
-               </div>
+                </div>
             </section>
         </>
     )
