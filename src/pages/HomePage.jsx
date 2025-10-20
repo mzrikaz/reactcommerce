@@ -1,7 +1,7 @@
 
 import ProductCard from "../components/ProductCard"
 
-const HomePage = ({ products, loading, addToCart }) => {
+const HomePage = ({ products, loading }) => {
 
     return (
         <>
@@ -20,7 +20,10 @@ const HomePage = ({ products, loading, addToCart }) => {
                     }
                     {
                         !loading && products.length === 0 ? <p>No Products Available...</p> :
-                            products.map((product) => <ProductCard key={product.id} product={product} addToCart={addToCart} />)
+                            products.map((product) =>
+                                <ProductCard key={product.id} product={product} />
+
+                            )
                     }
                 </div>
             </section>

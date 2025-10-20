@@ -1,6 +1,9 @@
+import { useContext } from "react"
+import { CartContext } from "../contexts/cart-context-provider"
 
 
-const CheckoutPage = ({cart}) => {
+const CheckoutPage = () => {
+    const {cart} = useContext(CartContext)
     return (
         <>
             <title>Checkout</title>

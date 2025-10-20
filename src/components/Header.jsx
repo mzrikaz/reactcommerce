@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
+import { useCart } from "../hooks/useCart";
 
-const Header = ({cart}) => {
-    const qty = cart.reduce((sum, item) => sum + item.quantity, 0)
+const Header = () => {
+    const { cartQuantity } = useCart();
     return (
         <header className="bg-black text-white p-4">
             <div className="w-7xl mx-auto flex justify-between items-center">
@@ -11,12 +12,13 @@ const Header = ({cart}) => {
                         <li><Link to="/" className="hover:underline">Home</Link></li>
                         <li><a href="#" className="hover:underline">Products</a></li>
                         <li><a href="#" className="hover:underline">Contact</a></li>
-                        <li><Link to="checkout" className=" bg-white rounded-sm text-black p-2">Checkout ({qty})</Link></li>
+                        <li><Link to="checkout" className=" bg-white rounded-sm text-black p-2">Checkout ({cartQuantity})</Link></li>
                     </ul>
                 </nav>
             </div>
         </header>
     )
 }
+
 
 export default Header
