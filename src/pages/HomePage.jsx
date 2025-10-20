@@ -1,7 +1,10 @@
 
+import { useContext } from "react"
 import ProductCard from "../components/ProductCard"
+import { CartContext } from "../providers/cart-context-provider"
 
-const HomePage = ({ products, loading, addToCart }) => {
+const HomePage = ({ products, loading }) => {
+    const { addToCart } = useContext(CartContext)
 
     return (
         <>

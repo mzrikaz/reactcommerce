@@ -1,5 +1,8 @@
+import { useContext } from "react"
+import { CartContext } from "../providers/cart-context-provider"
 
-const CartItem = ({ item, isFirstItem, increment, decrement, deleteItem }) => {
+const CartItem = ({ item, isFirstItem}) => {
+    const {increment, decrement, deleteItem} = useContext(CartContext)
     return (
         <div className={`grid grid-cols-6 py-3 ${!isFirstItem && 'border-t-2 border-gray-100'}`}>
             <div className="bg-gray-300 h-24 w-24 rounded-xl border-gray-300 col-span-1">

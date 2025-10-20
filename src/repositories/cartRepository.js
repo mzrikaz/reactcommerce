@@ -1,3 +1,5 @@
+import toastr from 'toastr';
+
 export const addToCartRepository = (item, cart, setCart) => {
     const cartItemIndex = cart.items.findIndex((cartItem) => cartItem.id == item.id);
 
@@ -5,7 +7,7 @@ export const addToCartRepository = (item, cart, setCart) => {
         incrementRepo(item, cart, setCart, cartItemIndex)
     } else {
         if (item.quantity < item.product.stock) {
-            console.log('adding new item');
+            toastr.success("Item added to cart")
             const updatedCart = {
                 ...cart,
                 items: [...cart.items, item],

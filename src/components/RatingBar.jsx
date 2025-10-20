@@ -3,6 +3,7 @@ import starHalfFill from '../assets/star-half-fill.svg';
 import starEmpty from '../assets/star-empty.svg';
 
 const RatingBar = ({ rating }) => {
+
     return (
         <div className='flex'>
             {[...Array(5)].map((_, index) => {
