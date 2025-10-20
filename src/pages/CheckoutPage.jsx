@@ -2,10 +2,12 @@ import { useContext } from "react"
 import CartItem from "../components/CartItem"
 import CartSummaryItem from "../components/CartSummaryItem"
 import { CartContext } from "../providers/cart-context-provider"
+import { useCart } from "../hooks/useCart"
 
 
 const CheckoutPage = () => {
-    const {cart, calculateSubtotal} = useContext(CartContext)
+    const {cart} = useContext(CartContext)
+    const {calculateSubtotal} = useCart();
     return (
         <>
             <title>Checkout</title>

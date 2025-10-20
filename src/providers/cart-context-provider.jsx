@@ -22,10 +22,7 @@ export const CartContextProvider = ({ children }) => {
     const decrement = useCallback((item) => decrementRepo(item, cart, setCart), [cart]);
     const deleteItem = useCallback((item) => deleteItemRepo(item, cart, setCart), [cart]);
 
-    const calculateSubtotal = useMemo(() => {
-        console.log('calculate total');
-        return cart.items.reduce((sum, item) => sum + (item.product.price * item.quantity), 0)
-    }, [cart]);
+    
 
     const values = {
         cart,
@@ -33,8 +30,7 @@ export const CartContextProvider = ({ children }) => {
         addToCart,
         increment,
         decrement,
-        deleteItem,
-        calculateSubtotal,
+        deleteItem    
     };
 
     return <CartContext.Provider value={values}>

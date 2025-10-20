@@ -8,7 +8,9 @@ import { useEffect, useState } from "react"
 async function fetchProducts(setProducts) {
   try {
     const response = await axios.get('/api/products');
-    setProducts(response.data);
+    if (response.data['status'] === 'success') {
+        setProducts(response.data.data);
+    }
   } catch (e) {
     alert(e.message);
   }
