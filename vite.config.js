@@ -11,7 +11,7 @@ export default defineConfig({
   server: {
     proxy: {
       '/api': 'http://reactcommerce.test',
-      '/images': 'http://reactcommerce.test',
+      '/storage': 'http://reactcommerce.test',
     }
   }
 })

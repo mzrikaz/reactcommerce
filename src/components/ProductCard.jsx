@@ -3,7 +3,7 @@ import RatingBar from "./RatingBar";
 import { CartContext } from "../providers/cart-context-provider";
 
 const ProductCard = ({ product, addToCart }) => {
-    const { id, name, price, image, rating } = product;
+    const { id, name, price, image_url, rating } = product;
             console.log('re render');
 
 
@@ -11,7 +11,7 @@ const ProductCard = ({ product, addToCart }) => {
 
     return (
         <div className="border p-4 rounded">
-            <img src={image} alt="Product 1" className="mb-2" />
+            <img src={image_url} alt="Product 1" className="mb-2" />
             <div className="flex justify-between">
                 <h3 className="font-bold">{name}</h3>
                 <RatingBar rating={rating} />
